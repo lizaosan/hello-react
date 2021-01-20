@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import CountDown2 from "./CountDown2.js";
 import reportWebVitals from "./reportWebVitals";
 
 function countDown() {
@@ -16,7 +17,7 @@ function countDown() {
 	ReactDOM.render(
 		<React.StrictMode>
 			<h1>Hello react!</h1>
-			<h2>1. 尚未使用 state 的寫法</h2>
+			<h2>1. 尚未使用 state 且 React.DOMrender 寫在 function 的寫法</h2>
 			<p>
 				今天是 {time.getMonth() + 1} 月 {time.getDate()} 日，距離{" "}
 				{endTime.getMonth() + 1} 月 {endTime.getDate()} 日 Furrymosa 場次還有{" "}
@@ -30,6 +31,14 @@ function countDown() {
 }
 
 setInterval(countDown, 1000);
+
+ReactDOM.render(
+	<React.StrictMode>
+		<h2>2. 使用 state 且元件化的寫法</h2>
+		<CountDown2 />
+	</React.StrictMode>,
+	document.getElementById("root2")
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
