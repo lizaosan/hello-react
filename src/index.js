@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import CountDown2 from "./CountDown2"; // 可以不寫 .js 副檔名
+import IsAborted from "./IsAborted"; // 可以不寫 .js 副檔名
 import reportWebVitals from "./reportWebVitals";
 
 function countDown() {
@@ -41,6 +42,14 @@ ReactDOM.render(
 		<CountDown2 />
 	</React.StrictMode>,
 	document.getElementById("root2")
+);
+
+ReactDOM.render(
+	<React.StrictMode>
+		<h2>3. 使用 props 和事件綁定</h2>
+		<IsAborted />
+	</React.StrictMode>,
+	document.getElementById("root3")
 );
 
 // If you want to start measuring performance in your app, pass a function
