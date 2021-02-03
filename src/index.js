@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import CountDown2 from "./CountDown2.js";
+import CountDown2 from "./CountDown2"; // 可以不寫 .js 副檔名
 import reportWebVitals from "./reportWebVitals";
 
 function countDown() {
+	let cautionWord = { color: "red", fontWeight: "bold" };
 	let time = new Date();
 	let endTime = new Date();
 	endTime.setMonth(5);
@@ -21,9 +22,11 @@ function countDown() {
 			<p>
 				今天是 {time.getMonth() + 1} 月 {time.getDate()} 日，距離{" "}
 				{endTime.getMonth() + 1} 月 {endTime.getDate()} 日 Furrymosa 場次還有{" "}
-				{parseInt(diffTime / 60 / 60 / 24)} 天{" "}
-				{parseInt((diffTime / 60 / 60) % 24)} 時{" "}
-				{parseInt((diffTime / 60) % 60)} 分 {parseInt(diffTime % 60)} 秒。
+				<span style={cautionWord}>
+					{parseInt(diffTime / 60 / 60 / 24)} 天{" "}
+					{parseInt((diffTime / 60 / 60) % 24)} 時{" "}
+					{parseInt((diffTime / 60) % 60)} 分 {parseInt(diffTime % 60)} 秒。
+				</span>
 			</p>
 		</React.StrictMode>,
 		document.getElementById("root")
