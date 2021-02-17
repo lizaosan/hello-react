@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import CountDown2 from "./CountDown2"; // 可以不寫 .js 副檔名
-import IsAborted from "./IsAborted"; // 可以不寫 .js 副檔名
+import IsAborted from "./IsAborted";
+import PrintMsg from "./PrintMsg";
 import reportWebVitals from "./reportWebVitals";
 
 function countDown() {
@@ -50,6 +51,40 @@ ReactDOM.render(
 		<IsAborted />
 	</React.StrictMode>,
 	document.getElementById("root3")
+);
+
+class Parent extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: "請輸入您的大名",
+		};
+		this.nameInput = this.nameInput.bind(this);
+	}
+	nameInput(param) {
+		this.setState({
+			name: param,
+		});
+	}
+	render() {
+		return (
+			<div>
+				<PrintMsg name={this.state.name} nameInput={this.nameInput} />
+			</div>
+		);
+	}
+}
+
+ReactDOM.render(
+	<React.StrictMode>
+		<div>
+			<h2>4. 父對子的函式綁定 & 子對父溝通</h2>
+			<div>
+				<Parent />
+			</div>
+		</div>
+	</React.StrictMode>,
+	document.getElementById("root4")
 );
 
 // If you want to start measuring performance in your app, pass a function
